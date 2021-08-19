@@ -25,4 +25,3 @@ class GPIORPi:
 
     def __exit__(self, exec_type, exec_value, traceback):
         self.GPIO.cleanup()
-        

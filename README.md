@@ -1,4 +1,3 @@
-
 GPIO is your standard pins that can be used to turn devices on and off. For example, a LED.
 I2C (Inter-Integrated Circuit) pins allow you to connect and talk to hardware modules that support this protocol (I2C Protocol). This protocol will typically take up two pins.
 SPI (Serial Peripheral Interface Bus) pins can be used to connect and talk to SPI devices. Pretty much the same as I2C but makes use of a different protocol.

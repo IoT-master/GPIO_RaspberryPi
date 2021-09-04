@@ -20,6 +20,10 @@ class GPIORPi:
         sleep(seconds)
         self.GPIO.output(pin, self.GPIO.LOW)
 
+    def input(self, pin):
+        self.GPIO.setup(pin, self.GPIO.IN)
+        return self.GPIO.input(pin)
+
     def __enter__(self):
         return self
 

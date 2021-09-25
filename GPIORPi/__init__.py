@@ -2,12 +2,12 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-class MyRPi:
+class MyGPIO:
     def __init__(self, board_mode=GPIO.BCM, input_pins=[], output_pins=[]) -> None:
         self.GPIO = GPIO
-        self.setmode(board_mode)
-        map(lambda pin: self.GPIO.setup(int(pin), self.GPIO.IN), input_pins)
-        map(lambda pin: self.GPIO.setup(int(pin), self.GPIO.OUT), output_pins)
+        self.GPIO.setmode(board_mode)
+        list(map(lambda pin: self.GPIO.setup(int(pin), self.GPIO.IN), input_pins))
+        list(map(lambda pin: self.GPIO.setup(int(pin), self.GPIO.OUT), output_pins))
 
     def output_latch_down(self, pin, seconds):
         self.GPIO.output(pin, self.GPIO.LOW)

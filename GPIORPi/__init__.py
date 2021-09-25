@@ -5,8 +5,14 @@ from time import sleep
 class MyGPIO:
     def __init__(self, board_mode=GPIO.BCM, input_pins=[], output_pins=[]):
         GPIO.setmode(board_mode)
-        list(map(lambda pin: GPIO.setup(int(pin), GPIO.IN), input_pins))
+        self.convert_pins_to_input(input_pins)
+        self.convert_pins_to_output(output_pins)
+
+    def convert_pins_to_output(output_pins):
         list(map(lambda pin: GPIO.setup(int(pin), GPIO.OUT), output_pins))
+
+    def convert_pins_to_input(input_pins):
+        list(map(lambda pin: GPIO.setup(int(pin), GPIO.IN), input_pins))
 
     def output_latch_down(self, pin, seconds):
         GPIO.output(pin, GPIO.LOW)
